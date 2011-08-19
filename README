@@ -1,11 +1,12 @@
-To see the documentation of the code see the souce code of each file.
+To see the documentation of the code see the source code of each file.
+The documentation can be automatically extracted using Doxygen.
+
 To compile an example type:
 make example.out
+
 To fetch the geometry files from the Cambridge Cluster Database type:
 make data
-To use this files to generate the tables cited in the documentation type
-(which depend in the geometry files):
 
-make data
-
+To use these files to generate the tables cited in the documentation type:
 make run
+
