@@ -1,6 +1,7 @@
 /*! \file steinhardt.c 
- * \brief See documentation in steinhardt.h
+ * \brief Contains the source code. See documentation in steinhardt.h
  *
+ * \author{Nicolas Quesada, n.quesada@utoronto.ca}
  * Copyright (C) 2010 Nicolas Quesada
  * This program is free software; you can redistribute it and/or modify 
  * it under the terms of the GNU General Public License ( GPL )
@@ -15,11 +16,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307,
  *  USA.
- * \url http://www.gnu.org/licenses/gpl-2.0.html
+ * http://www.gnu.org/licenses/gpl-2.0.html
  */
-
-
-
 
 #include<gsl/gsl_sf_legendre.h>
 #include<gsl/gsl_sf_coupling.h>
@@ -43,7 +41,6 @@ qlm (int l, int n, double rc, double *x, double *y, double *z, double *qlmRe,
   double xm, ym, zm, rm;
   double cost;
   double plm;
-  //Variable Initialization
   for (i = 0; i < lp1; i++)
     {
       qlmRe[i] = 0.0;
