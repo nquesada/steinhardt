@@ -12,7 +12,7 @@
  * This code takes advantage of the implementations of the  Legendre  
  * Polynomials and Wigner 3j Symbols provided in the GNU Scientific   
  * Library (GSL): gsl_sf_legendre and gsl_sf_coupling .
- * TO see an example of the use of the library see the documentation of
+ * To see an example of the use of the library see the documentation of
  * example.c .
  * 
  * 
@@ -26,7 +26,8 @@
  * (http://mathworld.wolfram.com/Wigner3j-Symbol.html) 
  * necessary to obtain Spherical Harmonics 
  * (http://mathworld.wolfram.com/SphericalHarmonic.html) and 
- * contract them in the W_l function. The code takes explicit advantage 
+ * contract them in rotationally invariant combinations. 
+ * The code takes explicit advantage 
  * of the symmetry properties of the Spherical Harmonics to calculate 
  * only the ones with m>=0. The library provides 4 functions whose usage
  * is explained below.
@@ -35,11 +36,11 @@
 /*! \fn int qlm (int l, int n, double rc, double *x, double *y, 
  * double *z, double *qlmRe, double *qlmIm):
  * This function calculates the quantities q_lm (0<=m<=l):
- * \f$ q_lm=\sum_{|r_{ij}|<rc} 
+ * \f$ q_{lm}=\sum_{|r_{ij}|<r_c} 
  * 		\mathcal{Y}_{lm}(\theta(r_{ij}),\phi(r_{ij})) \f$
  * The sum goes over all the possible bonds between the n particles 
  * whose coordinates are in the arrays x,y,z that are in magnitude 
- * smaller than rc. \n
+ * smaller than r_c. \n
  * 
  * Input:	int l, integer of the order parameter. \n
  * 			int n, Number of particles of the cluster. \n
@@ -53,13 +54,13 @@
  * 				equation. \n
  * 
  * Output:	The function returns the value of the number of bonds that
- * 			satisfied the cutoff condition |r_{ij}|<rc .\n 
+ * 			satisfied the cutoff condition |r_{ij}|<r_c .\n 
  * 			It will also return the real and imaginary part of this 
- * 			quantities qlm in the arrays qlmRe and qlmIe that have 
+ * 			quantities (qlm) in the arrays qlmRe and qlIm that have 
  * 			l+1 components corresponding to the values of m from 0 to l. 
- *	 		Notice that in the literature ( C. Chakravarty Molecular 
+ *	 		Notice that in the literature C. Chakravarty Molecular 
  * 			Physics 2002, Vol 100, No 23, 37773780 
- * 			http://dx.doi.org/10.1080/00268970210164428) the normalized 
+ * 			http://dx.doi.org/10.1080/00268970210164428 the normalized 
  * 			quantities \f$ Q_{lm}=q_{lm}/N \f$ are the ones 
  * 			that are actually calculated. The normalization factor N is 
  * 			always necessary for the calculation of the second order
@@ -71,9 +72,9 @@
 
 /*! \fn double Ql (int l, int count, double *qlmRe, double *qlmIm)
  * This function calculates the *normalized* first order invariants:
- * \f$Q_l=\left(\frac{4\pi}{2l+1}\frac{1}{N} 
- * \sum_{m=-l}^{l}|q_{lm}| \right)^{1/2}
- * =\left(\frac{4\pi}{2l+1} \sum_{m=-l}^{l}|Q_{lm}| \right)^{1/2}
+ * \f$Q_l=\frac{1}{N}\left(\frac{4\pi}{2l+1} 
+ * \sum_{m=-l}^{l}|q_{lm}|^2 \right)^{1/2}
+ * =\left(\frac{4\pi}{2l+1} \sum_{m=-l}^{l}|Q_{lm}|^2 \right)^{1/2}
  * \f$ where the normalizing factor N, is given in the value of the 
  * variable count that is the integer value returned by the function 
  * qlm.
@@ -95,8 +96,8 @@
 /*! \fn double wl (int l, double *qlmRe, double *qlmIm)
  * This function calculates the unnormalized second order invarinants
  * \f$w_l=\sum_{m_1+m_2+m_3=0} 
- * \left(\begin{array}{ccc} l & l & l \\ m_1 & m_2 & m_3 \end{array}\right)
- * q_{lm_1} q_{lm_2} q_{lm_3}\f$. \n
+ * \left(\begin{array}{ccc} l & l & l \\ m_1 & m_2 & m_3 
+ * \end{array}\right) q_{lm_1} q_{lm_2} q_{lm_3}\f$. \n
  * 
  * Input:	int l, integer of the order parameter..
  * 			double *qlmRe, *qlmIm Real and imaginary parts of the l+1

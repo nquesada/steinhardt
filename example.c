@@ -4,8 +4,8 @@
  * 
  * Provides and example of the usage of the library steinhardt.
  * It also can be used to reproduce the results presented in 
- * ( C. Chakravarty Molecular Physics 2002, Vol 100, No 23, 37773780 
- * 	http://dx.doi.org/10.1080/00268970210164428) with the help of the
+ * C. Chakravarty Molecular Physics 2002, Vol 100, No 23, 37773780 
+ * 	http://dx.doi.org/10.1080/00268970210164428 with the help of the
  * scripts getdata.sh and runexample.sh .
  * 
  * \fn int main (int argv, char *argc[])
