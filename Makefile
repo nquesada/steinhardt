@@ -6,7 +6,7 @@
 
 
 CC=gcc
-CFLAGS=-O4 -Wall -I/usr/include -I.
+CFLAGS=-O3 -Wall -I/usr/include -I.
 LFLAGS=-lm -L/usr/lib -lgsl -lgslcblas
 
 %.out:%.o steinhardt.o

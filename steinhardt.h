@@ -49,14 +49,14 @@
  * 			double *x, *y, *z, the x, y and z coordinates of the atoms
  * 				of the cluster. Each of them is an array of dimension n.
  * 				\n
- * 			double *qlmRe, *qlIm these arrays will be used to return 
+ * 			double *qlmRe, *qlmIm these arrays will be used to return 
  * 				the values of the quantities qlm as defined in the above
  * 				equation. \n
  * 
  * Output:	The function returns the value of the number of bonds that
  * 			satisfied the cutoff condition |r_{ij}|<r_c .\n 
  * 			It will also return the real and imaginary part of this 
- * 			quantities (qlm) in the arrays qlmRe and qlIm that have 
+ * 			quantities (qlm) in the arrays qlmRe and qlmIm that have 
  * 			l+1 components corresponding to the values of m from 0 to l. 
  *	 		Notice that in the literature C. Chakravarty Molecular 
  * 			Physics 2002, Vol 100, No 23, 37773780 
