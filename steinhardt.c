@@ -18,10 +18,11 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
+#include<math.h>
+#include<stdio.h>
 #include<gsl/gsl_sf_legendre.h>
 #include<gsl/gsl_sf_coupling.h>
 #include<gsl/gsl_math.h>
-#include<math.h>
 #include"steinhardt.h"
 
 
